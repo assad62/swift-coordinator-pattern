@@ -8,6 +8,7 @@ import SwiftUI
 // MARK: - Route Types
 enum AppRoute: Hashable {
     case abcFlow(ABCRoute)
+    case c1c2c3Flow(C1C2C3Route)
     case defFlow(DEFRoute)
 }
 
@@ -24,6 +25,7 @@ final class AppCoordinator: ObservableObject {
     private func setupCoordinators() {
         register(ABCFlowCoordinator(appCoordinator: self))
         register(DEFFlowCoordinator(appCoordinator: self))
+        register(C1C2C3FlowCoordinator(appCoordinator: self))
     }
     
     private func register<T: Coordinator>(_ coordinator: T) {

@@ -20,7 +20,10 @@ struct ContentView: View {
                         ABCViewFactory.makeView(for: abcRoute, using: appCoordinator.coordinator(ofType: ABCFlowCoordinator.self))
                     case .defFlow(let defRoute):
                         DEFViewFactory.makeView(for: defRoute, using: appCoordinator.coordinator(ofType: DEFFlowCoordinator.self))
+                    case .c1c2c3Flow(let c1C2C3Route):
+                        C1C2C3ViewFactory.makeView(for: c1C2C3Route, using: appCoordinator.coordinator(ofType: C1C2C3FlowCoordinator.self))
                     }
+                
                 }
         }
     }

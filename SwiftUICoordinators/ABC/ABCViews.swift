@@ -85,6 +85,7 @@ struct ViewC: View {
         VStack(spacing: 20) {
             Text("View C")
             Button("Go to D") { coordinator.navigateToNewFlow(.defFlow(.viewD)) }
+            Button("Go to C1") { coordinator.navigateToNewFlow(.c1c2c3Flow(.viewC1)) }
             Button("Go back") { coordinator.navigateBack() }
             Button("Go back to root") { coordinator.navigateToRoot() }
         }
