@@ -39,7 +39,7 @@ struct C1C2C3ViewFactory: ViewFactory {
     static func makeView(for route: C1C2C3Route, using coordinator: C1C2C3FlowCoordinator) -> AnyView {
         switch route {
         case .viewC1:
-            return AnyView(ViewC1(coordinator: coordinator))
+            return AnyView(ViewC1(coordinator: coordinator, viewModel: ViewC1ViewModel()))
         case .viewC2:
             return AnyView(ViewC2(coordinator: coordinator))
         case .viewC3:
@@ -50,12 +50,23 @@ struct C1C2C3ViewFactory: ViewFactory {
 
 
 // MARK: - Views
+
+//view model
+class ViewC1ViewModel: ObservableObject {
+    let vmText: String = "I am in ViewC1Model"
+    
+}
 struct ViewC1: View {
     let coordinator: C1C2C3FlowCoordinator
+    @StateObject var viewModel: ViewC1ViewModel
+    
+   
     
     var body: some View {
         VStack(spacing: 20) {
+            Text(viewModel.vmText)
             Text("View C1")
+            
             Button("Go to C2") { coordinator.navigateTo(.viewC2) }
           
         }

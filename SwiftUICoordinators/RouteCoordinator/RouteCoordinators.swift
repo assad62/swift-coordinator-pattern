@@ -15,8 +15,8 @@ protocol Coordinator: AnyObject {
 
 protocol RootCoordinator: Coordinator {}
 
-protocol CrossFlowNavigating: Coordinator {
+protocol CrossFlowNavigator: Coordinator {
     func navigateToNewFlow(_ route: AppRoute)
 }
 
-protocol RootCrossFlowCoordinator: RootCoordinator, CrossFlowNavigating {}
+protocol RootCrossFlowCoordinator: RootCoordinator, CrossFlowNavigator {}
